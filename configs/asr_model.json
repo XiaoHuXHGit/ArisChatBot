@@ -1,0 +1,5 @@
+{
+  "model_path": "E:\\Artificial-Intelligence\\AI-model-save\\ASRModel\\whisper-large-v3-turbo",
+  "device": "cuda",
+  "vad_model_path": "default"
+}
