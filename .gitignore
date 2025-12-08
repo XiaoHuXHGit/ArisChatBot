@@ -1,5 +1,5 @@
 **/__pycache__/
 .idea/
-assets/
+assets/*
 NapCat.Shell/
 AIEngine/large_model/model/

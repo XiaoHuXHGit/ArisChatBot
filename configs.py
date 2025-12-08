@@ -28,8 +28,15 @@ class MainWindowConfigs:
 
 @dataclass
 class VLConfigs:
-    model_path: str
-    device: str
+    bnb_4bit_quant_type: str
+    bnb_4bit_compute_dtype: str
+    bnb_4bit_use_double_quant: bool
+    do_sample: bool
+    top_k: int
+    top_p: float
+    temperature: float
+    repetition_penalty: float
+    length_penalty: float
 
 
 @dataclass
@@ -81,7 +88,7 @@ class ConfigManager:
     _CONFIG_MAP = {
         'global_config': ("global_configs.json", GlobalConfigs),
         'main_window_config': ("main_window.json", MainWindowConfigs),
-        # 'vl_config': ("vl_config.json", VLConfigs),
+        'vl_config': ("vl_config.json", VLConfigs),
         'asr_config': ("asr_model.json", ASRConfigs),
         'websocket_config': ("websockets.json", WebsocketConfigs)
     }

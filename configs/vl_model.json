@@ -1,0 +1,11 @@
+{
+  "bnb_4bit_quant_type": "nf4",
+  "bnb_4bit_compute_dtype": "bfloat16",
+  "bnb_4bit_use_double_quant": true,
+  "do_sample": true,
+  "top_k": 50,
+  "top_p": 0.8,
+  "temperature": 0.8,
+  "repetition_penalty": 1.2,
+  "length_penalty": 1.0
+}

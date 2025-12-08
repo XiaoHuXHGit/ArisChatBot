@@ -1,3 +1,9 @@
+"""
+还有很多待开发的功能：
+1. 增加对视频的支持
+2. 增加识别网络路径的支持
+3. 和Yolo一样，增加对目标检测的支持
+"""
 import json
 import base64
 
@@ -146,7 +152,7 @@ if __name__ == "__main__":
     role_path = "../../configs/roles/vl_model/vl_roles.json"
 
     qwen_vl_model = VLModel(model_path)
-    vl_model_role = "video_generation"
+    vl_model_role = "image_description"
     while True:
         image_path_input = input("图片的路径：").strip("\"")
         output_text = qwen_vl_model.model_infer(image_path_input, mode=vl_model_role)

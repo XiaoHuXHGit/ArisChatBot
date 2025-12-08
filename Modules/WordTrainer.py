@@ -166,7 +166,7 @@ class VocabularyTrainer:
             print("未找到相关单词")
 
     def review_words(self):
-        """单词测试"""
+        """单词测试：先显示单词，再判断是否认识"""
         print("=== 单词测试 ===")
         words = self.db.get_review_words(50)
         if not words:
@@ -181,18 +181,24 @@ class VocabularyTrainer:
                 continue
 
             print(f"\n单词: {word}")
+            input("（按回车查看翻译并作答...）")  # 第一阶段：看一眼
+
+            # 第二阶段：作答
+            print(f"翻译: {translation}")
             choice = input("0. 不认识  1. 认识  e. 退出测试\n请选择: ").strip()
 
             if choice == 'e':
                 break
             elif choice == '1':
-                print(f"✅ 翻译: {translation}")
+                print("✅ 回答正确")
                 self.db.update_stats(word, is_correct=True)
             elif choice == '0':
-                print(f"❌ 翻译: {translation}")
+                print("❌ 回答错误")
                 self.db.update_stats(word, is_correct=False)
             else:
-                print("无效输入，跳过此单词")
+                print("无效输入，视为跳过")
+
+        print("\n测试结束。")
 
     def run(self):
         """主控制台循环"""
@@ -219,5 +225,5 @@ class VocabularyTrainer:
 
 if __name__ == "__main__":
     trainer = VocabularyTrainer(
-        db_path=r"E:\programs\aris_chatbot_local\aris_chatbot\DataAccessObject\DataStorage\vocabulary.sqlite")
+        db_path=r"D:\programs\aris_chatbot\aris_chatbot\DataAccessObject\DataStorage\vocabulary.sqlite")
     trainer.run()
